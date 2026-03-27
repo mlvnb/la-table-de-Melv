@@ -1,0 +1,199 @@
+/* --- RESET ET BASES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* Active le scroll snapping au niveau de l'URL */
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #050a12; /* Bleu très sombre/noir */
+    color: #e0d8c3; /* Crème texturé pour le texte */
+    font-family: 'Lora', serif; /* Police de corps élégante */
+    overflow: hidden; /* Désactive le scroll barre classique pour le JS */
+}
+
+/* --- TYPOGRAPHIE --- */
+h1.elegant-quote {
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    font-size: 3rem;
+    color: #c9a063; /* Or ancien */
+    text-align: center;
+    line-height: 1.2;
+    max-width: 800px;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: #c9a063;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-bottom: 0.5rem;
+}
+
+h3 {
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.wine-pairing, .description {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #a0957f;
+}
+
+/* --- LAYOUT DU SCROLL SNAPPING --- */
+.scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* Force le snap vertical */
+}
+
+.scroll-section {
+    height: 100vh; /* Chaque section fait la hauteur de l'écran */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start; /* Le haut de la section se cale en haut de l'écran */
+    position: relative;
+    padding: 10vh 10vw;
+}
+
+/* Fond texturé subtil (menu-bg.png) */
+.scroll-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('menu-bg.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15; /* Très subtil */
+    z-index: -1;
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    z-index: 1;
+}
+
+/* --- LAYOUT DES PLATS --- */
+.dish-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.dish-display.reverse {
+    grid-template-columns: 1fr 1fr;
+    direction: rtl; /* Inverse l'ordre du texte et de l'image */
+}
+
+.dish-display.reverse .dish-text {
+    direction: ltr; /* Remet le texte dans le bon sens */
+}
+
+.dish-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+}
+
+/* --- NAVIGATION OR --- */
+.gold-nav {
+    position: fixed;
+    top: 2rem;
+    right: 3rem;
+    z-index: 100;
+}
+
+.gold-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.gold-nav a {
+    text-decoration: none;
+    color: #a0957f;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    transition: color 0.3s ease;
+}
+
+.gold-nav a:hover {
+    color: #c9a063;
+}
+
+/* --- INDICATEUR DE SCROLL D'ACCUEIL --- */
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #a0957f;
+    font-size: 0.8rem;
+}
+
+.gold-line {
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, #c9a063);
+    margin-bottom: 10px;
+    animation: scrollLine 2s infinite;
+}
+
+@keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* --- ANIMATIONS DE RÉVÉLATION (PRO) --- */
+/* État initial caché */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-image {
+    opacity: 0;
+    transform: translateX(50px) scale(0.95);
+    transition: all 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.3s; /* Légère délai */
+}
+
+.dish-display.reverse .reveal-image {
+    transform: translateX(-50px) scale(0.95);
+}
+
+/* État actif (déclenché par le JS) */
+.active .reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.active .reveal-image {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}

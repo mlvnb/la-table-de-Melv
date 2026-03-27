@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repas de ce Soir - Excellence Française</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="gold-nav">
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#entree">Entrée</a></li>
+            <li><a href="#plat">Plat</a></li>
+            <li><a href="#fromage">Fromage</a></li>
+            <li><a href="#dessert">Dessert</a></li>
+        </ul>
+    </nav>
+
+    <main class="scroll-container">
+
+        <section id="accueil" class="scroll-section accueil">
+            <div class="content-wrapper reveal">
+                <h1 class="elegant-quote">Ouvrez vos papilles et régalez vous</h1>
+                <div class="scroll-down-indicator">
+                    <span class="gold-line"></span>
+                    <p>Découvrir le menu</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="entree" class="scroll-section">
+            <div class="content-wrapper">
+                <div class="dish-display">
+                    <div class="dish-text reveal">
+                        <h2>L'Entrée</h2>
+                        <h3>Carpaccio de St Jacques<br>et ses agrumes</h3>
+                        <p class="wine-pairing">Accord vin : Pouilly-Fumé Les Corbières 2023</p>
+                    </div>
+                    <div class="dish-image reveal-image">
+                        <img src="carpaccio.png" alt="Illustration de Carpaccio de Saint-Jacques">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="plat" class="scroll-section">
+            <div class="content-wrapper">
+                <div class="dish-display reverse">
+                    <div class="dish-text reveal">
+                        <h2>Le Plat</h2>
+                        <h3>La Côte de Bœuf<br>sauce Relais</h3>
+                        <p class="wine-pairing">Accord vin : Beaujolais Château Marly 2023</p>
+                    </div>
+                    <div class="dish-image reveal-image">
+                        <img src="cote-de-beuf.png" alt="Illustration de Côte de Bœuf">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="fromage" class="scroll-section">
+            <div class="content-wrapper">
+                <div class="dish-display">
+                    <div class="dish-text reveal">
+                        <h2>Le Fromage</h2>
+                        <h3>Le Saint-Nectaire Fermier</h3>
+                        <p class="description">Une pâte onctueuse, un goût de terroir.</p>
+                    </div>
+                    <div class="dish-image reveal-image">
+                        <img src="saint-nectaire.png" alt="Illustration de Saint-Nectaire">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dessert" class="scroll-section">
+            <div class="content-wrapper">
+                <div class="dish-display reverse">
+                    <div class="dish-text reveal">
+                        <h2>Le Dessert</h2>
+                        <h3>Le fameux Merveilleux<br>de Fred</h3>
+                        <p class="description">Meringue, crème fouettée chocolat et copeaux.</p>
+                    </div>
+                    <div class="dish-image reveal-image">
+                        <img src="merveilleux.png" alt="Illustration du Merveilleux de Fred">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
